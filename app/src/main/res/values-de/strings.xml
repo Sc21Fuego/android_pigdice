@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Schweine-Würfelspiel</string>
+    <string name="developed_by">Entwickelt von:</string>
+    <string name="image_credit">"Bildnachweis: "</string>
+    <string name="contact">Kontakt</string>
+    <string name="about">Über</string>
+    <string name="dj_harrison">DJ Harrison</string>
+    <string name="trofimov_deaf">trofimov_deaf</string>
+    <string name="number_zero">0</string>
+    <string name="bust">PLEITE</string>
+    <string name="hold">HALT</string>
+    <string name="roll">WÜRFELN</string>
+    <string name="dice_1">Würfel 1</string>
+    <string name="dice_2">Würfel 2</string>
+    <string name="left_arrow">Pfeil nach links</string>
+    <string name="right_arrow">Pfeil nach rechts</string>
+    <string name="winner_image">Gewinnerbild</string>
+    <string name="dice_total">Würfelsumme</string>
+    <string name="games_won">Gewonnene Spiele</string>
+    <string name="total_score">Gesamtpunktzahl</string>
+    <string name="turn_total">Rundenpunktzahl</string>
+    <string name="computer_name">HAL 9000</string>
+    <string name="player_name">Dave</string>
+    <string name="loss_image">Bild von HAL9000s rotem Auge</string>
+    <string name="winner">Gewinner</string>
+    <string name="leaderboard">Tabla de Clasificación</string>
+    <string name="back_to_game">Volver al Juego</string>
+    <string name="snake_eyes">Doppel-Eins</string>
+    <string name="points">Punkte</string>
+    <string name="date">Datum</string>
+</resources>

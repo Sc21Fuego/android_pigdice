@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">PIG Dice</string>
+    <string name="developed_by">"Developed by: "</string>
+    <string name="image_credit">"Image credit: "</string>
+    <string name="contact">contact</string>
+    <string name="about">about</string>
+    <string name="dj_harrison">DJ Harrison</string>
+    <string name="trofimov_deaf">trofimov_deaf</string>
+    <string name="number_zero">0</string>
+    <string name="bust">BUST</string>
+    <string name="hold">HOLD</string>
+    <string name="roll">ROLL</string>
+    <string name="dice_1">Dice 1</string>
+    <string name="dice_2">Dice 2</string>
+    <string name="left_arrow">Left Arrow</string>
+    <string name="right_arrow">Right Arrow</string>
+    <string name="winner_image">Winner image</string>
+    <string name="dice_total">Dice Total</string>
+    <string name="games_won">Games Won</string>
+    <string name="total_score">Total Score</string>
+    <string name="turn_total">Turn Total</string>
+    <string name="computer_name">HAL 9000</string>
+    <string name="player_name">Dave</string>
+    <string name="loss_image">Image of HAL9000\'s red eye</string>
+    <string name="winner">Winner</string>
+    <string name="leaderboard">Leaderboard</string>
+    <string name="back_to_game">Back to Game</string>
+    <string name="snake_eyes">SNAKE EYES</string>
+    <string name="points">Points</string>
+    <string name="date">Date</string>
+</resources>
