@@ -1,6 +1,7 @@
 package com.example.pigdice
 
 import android.widget.ImageView
+import com.example.pigdice.MainActivity.Companion.debug
 
 class Dice(private val diceImageView: ImageView){
     //Dice class to roll dice, save value, and display the appropriate image
@@ -8,7 +9,7 @@ class Dice(private val diceImageView: ImageView){
     var currentValue: Int = 1
 
     fun roll(){
-        currentValue = if (DEBUG) {
+        currentValue = if (debug) {
             (2..6).random()
         } else {
             (1..6).random()

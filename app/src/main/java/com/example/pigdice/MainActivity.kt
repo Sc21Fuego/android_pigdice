@@ -1,16 +1,21 @@
 package com.example.pigdice
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.os.Handler
 import android.os.Looper
+import android.view.MotionEvent
 import android.view.View
+import android.view.ViewConfiguration
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat.startActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import java.time.LocalDateTime
@@ -32,7 +37,7 @@ GAME LOGIC:
 
 //    Set Constant for score limit per round
 const val SCORE_LIMIT = 100
-const val DEBUG = true
+
 const val PLAYER_NAME = "Dave"
 const val COMPUTER_NAME = "HAL9000"
 
@@ -71,7 +76,9 @@ class MainActivity : AppCompatActivity() {
     var diceTotal = 0
     var winner : String? = null
     var winnerScore : Int? = null
-
+    companion object {
+        var debug: Boolean = false
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -160,6 +167,9 @@ class MainActivity : AppCompatActivity() {
         btnHold = findViewById(R.id.btnHold)
         btnRoll = findViewById(R.id.btnRoll)
         btnLeaderboard = findViewById(R.id.btnLeaderboard)
+
+//        triple-click computer opponent name to activate debug mode - no ones & much faster comp turns
+        setupTripleClick(txtCompName)
     }
 
     private fun clearStalePlayerData() {
@@ -293,7 +303,7 @@ class MainActivity : AppCompatActivity() {
 //        Determine computer turn time length based on debug mode
         var totalTime : Long
         var stepTime : Long
-        if (DEBUG) {
+        if (debug) {
             totalTime = 3000
             stepTime = 100
         } else {
@@ -358,4 +368,42 @@ class MainActivity : AppCompatActivity() {
             }.start()
         }, stepTime)
     }
+    @SuppressLint("ClickableViewAccessibility")
+    private fun setupTripleClick(view: View) {
+        var tapCount = 0
+        var lastTapTimeMs: Long = 0
+
+        // Timeout allowed between individual taps to be considered a multi-tap gesture
+        val doubleTapLimit = ViewConfiguration.getDoubleTapTimeout().toLong()
+
+        view.setOnTouchListener { _, event ->
+            when (event.action) {
+                MotionEvent.ACTION_UP -> {
+                    val currentTime = System.currentTimeMillis()
+
+                    // If time gap between taps is within limits, increment count. Otherwise, reset.
+                    if (currentTime - lastTapTimeMs < doubleTapLimit) {
+                        tapCount++
+                    } else {
+                        tapCount = 1
+                    }
+
+                    lastTapTimeMs = currentTime
+
+                    if (tapCount == 3) {
+                        onTripleClicked()
+                        tapCount = 0 // Reset after triggering
+                    }
+                }
+            }
+            true
+        }
+    }
+
+    private fun onTripleClicked() {
+        Toast.makeText(this, "Debug mode activated", Toast.LENGTH_SHORT).show()
+        debug = !debug
+    }
 }
+
+
